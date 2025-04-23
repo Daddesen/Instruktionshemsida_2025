@@ -1,9 +1,61 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Arduino</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESP8266 Learning</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<p>HEJ HEJ DAVID!</p>
+  <header>
+    <nav class="navbar">
+      <h1>ESP8266 Learning</h1>
+      <button class="hamburger" id="hamburger">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li class="dropdown">
+          <button class="dropbtn">Tutorials</button>
+          <div class="dropdown-content">
+            <a href="instr1.html">1. About ESP8266</a>
+            <a href="instr2.html">2. Installing Arduino IDE</a>
+            <a href="instr3.html">3. LED Sequence</a>
+            <a href="instr4.html">4. Using a Relay</a>
+            <a href="instr5.html">5. Temp & Humidity Sensor</a>
+            <a href="instr6.html">6. Ultrasonic Sensor</a>
+          </div>
+        </li>
+        <li><a href="form.html">Form</a></li>
+        <li><a href="copyright.html">Copyright</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Welcome!</h2>
+      <p>This site will teach you the basics of ESP8266, Arduino, and electronics. Perfect for beginners!</p>
+    </section>
+
+    <section class="goals">
+      <h2>Purpose</h2>
+      <p>The purpose of this learning site is to introduce the fundamentals of microcontroller systems, focusing on the ESP8266 and Arduino. Through simple and practical examples, you'll learn how to work with components such as LEDs, relays, and sensors. The site is designed to provide a solid foundation in electronics development and programming in the Arduino IDE.</p>
+
+      <h2>Goals</h2>
+      <ul>
+        <li>Understand what the ESP8266 is and what features it offers.</li>
+        <li>Install and configure the Arduino IDE for programming.</li>
+        <li>Wire and program a basic LED light sequence.</li>
+        <li>Understand how to use a relay to control external devices.</li>
+        <li>Use temperature and humidity sensors to read environmental data.</li>
+        <li>Use an ultrasonic sensor to measure distance, detect movement, and identify blocked signals.</li>
+        <li>Develop a basic understanding of how hardware and software work together in IoT projects.</li>
+      </ul>
+
+      <h2>Target Audience</h2>
+      <p>This site is intended for beginners interested in electronics and programming. No prior experience with microcontrollers or coding is needed – everything is explained step-by-step with clear instructions and examples.</p>
+    </section>
+  </main>
+
+  <script src="index.js"></script>
 </body>
 </html>
