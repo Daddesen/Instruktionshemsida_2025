@@ -1,96 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  <title>ESP8266 Learning</title>
-  <link rel="stylesheet" href="index.css">
-</head>
-<body>
-  <header>
-    <nav class="navbar">
-      <h1>ESP8266 Learning</h1>
-      <button class="hamburger" id="hamburger">☰</button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="form.html"><i class="fa-solid fa-graduation-cap"></i> Instructions </a></li>
-        <li><a href="form.html"><i class="fa-solid fa-paper-plane"></i> Form</a></li>
-        <li><a href="copyright.html"><i class="fa-solid fa-copyright"></i> Copyright</a></li>
-      </ul>
-    </nav>
-  </header>
+    <title>ESP8266 Learning</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <h1>ESP8266 Learning</h1>
+        <button class="hamburger" id="hamburger">☰</button>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="#buttons">
+              <i class="fa-solid fa-graduation-cap"></i> Instructions
+            </a>
+          </li>
+          <li>
+            <a href="form.html"><i class="fa-solid fa-paper-plane"></i> Form</a>
+          </li>
+          <li>
+            <a href="copyright.html">
+              <i class="fa-solid fa-copyright"></i> Copyright</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-  <main>
-    <section class="intro">
-      <h2>Welcome!</h2>
-      <p>This site will teach you the basics of ESP8266, Arduino, and electronics. Perfect for beginners!</p>
-    </section>
+    <main>
+      <div class="container">
+        <section class="text">
+          <h2>Welcome!</h2>
+          <p>
+            This site will teach you the basics of ESP8266, Arduino, and
+            electronics. Perfect for beginners!
+          </p>
 
-    <section class="goals">
-      <h2>Purpose</h2>
-      <p>The purpose of this learning site is to introduce the fundamentals of microcontroller systems, focusing on the ESP8266 and Arduino. Through simple and practical examples, you'll learn how to work with components such as LEDs, relays, and sensors. The site is designed to provide a solid foundation in electronics development and programming in the Arduino IDE.</p>
+          <h2>Purpose</h2>
+          <p>
+            The purpose of this learning site is to introduce the fundamentals
+            of microcontroller systems, focusing on the ESP8266 and Arduino.
+            Through simple and practical examples, you'll learn how to work with
+            components such as LEDs, relays, and sensors. The site is designed
+            to provide a solid foundation in electronics development and
+            programming in the Arduino IDE.
+          </p>
 
-      <h2>Goals</h2>
-      <ul>
-        <li>Understand what the ESP8266 is and what features it offers.</li>
-        <li>Install and configure the Arduino IDE for programming.</li>
-        <li>Wire and program a basic LED light sequence.</li>
-        <li>Understand how to use a relay to control external devices.</li>
-        <li>Use temperature and humidity sensors to read environmental data.</li>
-        <li>Use an ultrasonic sensor to measure distance, detect movement, and identify blocked signals.</li>
-        <li>Develop a basic understanding of how hardware and software work together in IoT projects.</li>
-      </ul>
+          <h2>Goals</h2>
 
-      <h2>Target Audience</h2>
-      <p>This site is intended for beginners interested in electronics and programming. No prior experience with microcontrollers or coding is needed – everything is explained step-by-step with clear instructions and examples.</p>
-    </section>
+          <ul>
+            <li>Understand what the ESP8266 is and what features it offers.</li>
+            <li>Install and configure the Arduino IDE for programming.</li>
+            <li>Wire and program a basic LED light sequence.</li>
+            <li>Understand how to use a relay to control external devices.</li>
+            <li>
+              Use temperature and humidity sensors to read environmental data.
+            </li>
+            <li>
+              Use an ultrasonic sensor to measure distance, detect movement, and
+              identify blocked signals.
+            </li>
+            <li>
+              Develop a basic understanding of how hardware and software work
+              together in IoT projects.
+            </li>
+          </ul>
 
-  <!-- Färgglada sektioner för varje tutorial -->
-<section class="color-section a-section">
-  <a href="instr1.html">
-    <h1>1. About ESP8266</h1>
-    <h3>Understand the logic and parts of an ESP8266</h3>
-  </a>
-</section>
+          <h2>Target Audience</h2>
+          <p>
+            This site is intended for beginners interested in electronics and
+            programming. No prior experience with microcontrollers or coding is
+            needed – everything is explained step-by-step with clear
+            instructions and examples.
+          </p>
+        </section>
+        <div class="buttons" id="buttons">
+          <br />
 
-<section class="color-section b-section">
-  <a href="instr2.html">
-    <h1>2. Installing Arduino IDE</h1>
-    <h3>Get help installing Arduino IDE</h3>
-  </a>
-</section>
+          <section class="color-section a-section">
+            <a href="instr1.html">
+              <h1>1. About ESP8266</h1>
+              <h3>Understand the logic and parts of an ESP8266</h3>
+            </a>
+          </section>
 
-<section class="color-section c-section">
-  <a href="instr3.html">
-    <h1>3. LED Sequence</h1>
-    <h3>Learn to blink and sequence LEDs</h3>
-  </a>
-</section>
+          <section class="color-section b-section">
+            <a href="instr2.html">
+              <h1>2. Installing Arduino IDE</h1>
+              <h3>Get help installing Arduino IDE</h3>
+            </a>
+          </section>
 
-<section class="color-section d-section">
-  <a href="instr4.html">
-    <h1>4. Using a Relay</h1>
-    <h3>Control devices using relays</h3>
-  </a>
-</section>
+          <section class="color-section c-section">
+            <a href="instr3.html">
+              <h1>3. LED Sequence</h1>
+              <h3>Learn to blink and sequence LEDs</h3>
+            </a>
+          </section>
 
-<section class="color-section e-section">
-  <a href="instr5.html">
-    <h1>5. Temp & Humidity Sensor</h1>
-    <h3>Measure and display temperature & humidity</h3>
-  </a>
-</section>
+          <section class="color-section d-section">
+            <a href="instr4.html">
+              <h1>4. Using a Relay</h1>
+              <h3>Control devices using relays</h3>
+            </a>
+          </section>
 
-<section class="color-section f-section">
-  <a href="instr6.html">
-    <h1>6. Ultrasonic Sensor</h1>
-    <h3>Measure distances with precision</h3>
-  </a>
-</section>
+          <section class="color-section e-section">
+            <a href="instr5.html">
+              <h1>5. Temp & Humidity Sensor</h1>
+              <h3>Measure and display temperature & humidity</h3>
+            </a>
+          </section>
 
-  </main>
+          <section class="color-section f-section">
+            <a href="instr6.html">
+              <h1>6. Ultrasonic Sensor</h1>
+              <h3>Measure distances with precision</h3>
+            </a>
+          </section>
+        </div>
+      </div>
+    </main>
 
-  <script src="index.js"></script>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>
