@@ -99,6 +99,7 @@ section {
     top: 65px;
     right: 0;
     width: 100%;
+    padding: 1rem;
   }
 
   .nav-links a {
@@ -123,10 +124,10 @@ section {
 .color-section {
   position: relative;
   overflow: hidden;
-  padding: 0.5rem 2rem;
+  padding: 0.2rem 1.5rem;
   text-align: left;
   border-radius: 8px;
-  margin-bottom: 2rem;
+  margin-bottom: 0.8rem;
   color: #1a1a1a;
   z-index: 1;
   cursor: pointer;
@@ -143,10 +144,9 @@ section {
 
 .color-section h1,
 .color-section h3 {
-  margin: 0.5rem 0;
+  margin: 0.3rem;
 }
 
-/* Färgbar till vänster (alltid synlig) */
 .color-section::after {
   content: "";
   position: absolute;
@@ -159,7 +159,6 @@ section {
   opacity: 0.8;
 }
 
-/* Bakgrundsfyllning vid hover */
 .color-section::before {
   content: "";
   position: absolute;
