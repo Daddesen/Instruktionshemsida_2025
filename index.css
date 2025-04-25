@@ -16,10 +16,17 @@ body {
     position: relative;
     box-shadow: #dadada 20px 7px;
   }
+
+  i {
+    color: #7bb6cd;
+    margin-right: 0.5rem;
+    transition: color 0.3s ease;
+  }
+
   
   .hamburger {
     display: none;
-    font-size: 24px;
+    font-size: 1.5rem;
     background: none;
     color: white;
     border: none;
@@ -32,49 +39,22 @@ body {
     gap: 2rem;
   }
   
-  .nav-links a,
-  .dropbtn {
+  .nav-links a {
     color: white;
     text-decoration: none;
     background: none;
     border-radius: 5px;
-    /* padding: 0.7rem 1rem; */
+    padding: 0.7rem 1rem;
   }
   
-  .nav-links a:hover,
-  .dropbtn:hover,
-  .dropdown-content a:hover {
+  .nav-links a:hover{
     background-color: #184585;
     border-radius: 5px;
-  }
-  
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropbtn {
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #2c2c2c;
-    min-width: 200px;
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: white;
-    padding: 1rem 1rem;
-    display: block;
-    text-decoration: none;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
+
+    i{
+      color: #ffffff;
+
+    }
   }
   
   main {
@@ -91,10 +71,14 @@ body {
       flex-direction: column;
       background-color: #1e1e1e;
       position: absolute;
-      top: 60px;
+      top: 65px;
       right: 0;
       width: 100%;
       padding: 1rem;
+    }
+
+    .nav-links a {
+      margin-left: 1.5rem;
     }
   
     .nav-links.show {
@@ -104,6 +88,10 @@ body {
     .hamburger {
       display: block;
     }
+
+    i {
+      color: #2398c6;
+    }
   }
 
 
@@ -112,9 +100,9 @@ body {
   .color-section {
     position: relative;
     overflow: hidden;
-    padding: 2rem 2rem 2rem 3rem; /* plats för färgbar till vänster */
+    padding: 0.5rem 2rem; 
     text-align: left;
-    border-radius: 12px;
+    border-radius: 8px;
     margin-bottom: 2rem;
     color: #1a1a1a;
     z-index: 1;
@@ -185,61 +173,55 @@ body {
     color: white;
   }
 
-  .green-section {
-    color: #00c389;
-    background-color: #00c38922;
-
-  }
-  
-  .blue-section {
-    color: #3aaaff;
-    background-color: #3aaaff22;
-
-  }
-  
-  .dark-section {
-    color: #444;
-  }
-  
-  .pink-section {
-    color: #f97f9c;
-  }
-  
-  .yellow-section {
-    color: #ffcb00;
-  }
-  
-  .purple-section {
-    color: #b48cf2;
-  }
-  
-  /* Färgkod per sektion – fyllning */
-.green-section::before {
-  background: #00C389;
-}
-
-.blue-section::before {
-  background-color: #3aaaff;
-}
-
-.dark-section::before {
-  background-color: #444;
-}
-
-.pink-section::before {
-  background-color: #f97f9c;
-}
-
-.yellow-section::before {
-  background-color: #ffe600;
-}
-
-.purple-section::before {
-  background-color: #b48cf2;
-}
-
 /* Ändra textfärg vid hover för bättre kontrast */
 .color-section:hover {
   color: rgb(255, 255, 255);
 }
-  
+
+.a-section {
+  color: #95ea46;
+  background-color: #95ea4622;
+}
+.a-section::before {
+  background: #95ea46;
+}
+
+.b-section {
+  color: #00C389; 
+  background-color: #00C38922;
+}
+.b-section::before {
+  background-color: #00C389;
+}
+
+.c-section {
+  color: #00B7D9;
+  background-color: #00B7D922;
+}
+.c-section::before {
+  background-color: #00B7D9;
+}
+
+.d-section {
+  color: #268CFF;
+  background-color: #268CFF22;
+}
+.d-section::before {
+  background-color: #268CFF;
+}
+
+.e-section {
+  color: #7C5FFF;
+  background-color: #7C5FFF22;
+}
+.e-section::before {
+  background-color: #7C5FFF;
+}
+
+.f-section {
+  color: #B36BFF;
+  background-color: #B36BFF22;
+}
+.f-section::before {
+  background-color: #B36BFF;
+}
