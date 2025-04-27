@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arduino Code Example</title>
+
+    <!-- Prism CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Prism JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  </head>
+  <body>
+    <h1>Arduino Example</h1>
+
+    <!-- Här är kodblocket -->
+    <pre><code class="language-cpp">void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  Serial.println("Hello, world!");
+  delay(1000);
+}
+</code></pre>
+  </body>
+</html>

@@ -22,9 +22,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
         setTimeout(() => {
           window.location.href = link;
-        }, 500); // Vänta 0.5 sekunder
+        }, 300);
       }
-      // Om det inte är portrait, låt länken fungera normalt direkt
     });
+  });
+});
+
+document.querySelectorAll(".copy-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const container = button.closest(".code-container");
+    const code = container.querySelector("pre code");
+    const text = code.innerText;
+
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        button.textContent = "Copied!";
+        setTimeout(() => {
+          button.textContent = "Copy";
+        }, 3000);
+      })
+      .catch((err) => {
+        console.error("Could not copy text: ", err);
+      });
   });
 });
