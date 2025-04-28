@@ -80,6 +80,7 @@ section {
   .text {
     flex: 2;
     text-align: left;
+    margin: 0px 3rem;
   }
 
   .buttons {
