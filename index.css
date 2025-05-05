@@ -96,6 +96,16 @@ section {
   main.Instructions {
     margin: 0px 10vw;
   }
+  video {
+    width: auto;
+    height: 50vh;
+    margin-left: 0 !important;
+  }
+  .responsive-image {
+    width: auto;
+    height: 50vh;
+    margin-left: 0 !important;
+  }
 }
 
 @media screen and (orientation: portrait) {
@@ -108,6 +118,14 @@ section {
     right: 0;
     width: 100%;
     padding: 1rem;
+  }
+  video {
+    width: 100%;
+    height: auto;
+  }
+  .responsive-image {
+    width: 100%;
+    height: auto;
   }
 
   .nav-links a {
@@ -303,4 +321,34 @@ pre {
   overflow-x: auto;
   background: transparent;
   border-radius: 0 0 10px 10px;
+}
+
+/* Bilder och videor  */
+
+video {
+  display: block;
+  margin: 2rem auto;
+  border-radius: 10px;
+  background-color: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+/* BILD-STYLING */
+.responsive-image {
+  display: block;
+
+  margin: 2rem auto;
+  border-radius: 10px;
+  background-color: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.responsive-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
