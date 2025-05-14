@@ -3,30 +3,140 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arduino Code Example</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-    <!-- Prism CSS -->
+    <title>About ESP8266</title>
+
+    <link rel="stylesheet" href="index.css" />
+
+    <!-- Prism.js CSS för färger -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
       rel="stylesheet"
     />
-
-    <!-- Prism JS -->
+    <!-- Prism.js Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- C++ språkstöd -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
   </head>
   <body>
-    <h1>Arduino Example</h1>
+    <header>
+      <nav class="navbar" id="topp">
+        <h1>ESP8266 Learning</h1>
+        <button class="hamburger" id="hamburger">☰</button>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="index.html"> <i class="fa-solid fa-house"></i> Home </a>
+          </li>
+          <li>
+            <a href="#buttons">
+              <i class="fa-solid fa-graduation-cap"></i> Instructions
+            </a>
+          </li>
+          <li>
+            <a href="form.html"><i class="fa-solid fa-paper-plane"></i> Form</a>
+          </li>
+          <li>
+            <a href="copyright.html">
+              <i class="fa-solid fa-copyright"></i> Copyright</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-    <!-- Här är kodblocket -->
-    <pre><code class="language-cpp">void setup() {
-  Serial.begin(9600);
-}
+    <main class="Instructions" id="Instructions">
+      <h1>2. Installing Arduino IDE</h1>
 
-void loop() {
-  Serial.println("Hello, world!");
-  delay(1000);
-}
-</code></pre>
+      <div class="code-container">
+        <div class="code-header">
+          <span><i class="fa-solid fa-code"></i> C++ Code Example</span>
+          <button class="copy-button">Copy</button>
+        </div>
+        <pre><code class="language-cpp">
+      void setup() {
+        Serial.begin(9600);
+      }
+      
+      void loop() {
+        Serial.println("Hello, world!");
+        delay(1000);
+      }
+        </code></pre>
+      </div>
+
+      <h2>Video Demonstration</h2>
+      <video controls>
+        <source src="pictures/testmp4.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <h2>Temperature Sensor Image</h2>
+      <img
+        src="pictures/temp.jpeg"
+        alt="Temperature Sensor"
+        class="responsive-image"
+      />
+
+      <p>
+        HEj hej Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id
+        asperiores saepe laudantium quas, odit, sequi hic, tenetur aperiam minus
+        optio suscipit in cum magnam unde quasi adipisci facere debitis
+        architecto?
+      </p>
+
+      <div class="buttons" id="buttons">
+        <br />
+
+        <section class="color-section a-section">
+          <a href="instr1.html">
+            <h1>1. About ESP8266</h1>
+            <h3>Understand the logic and parts of an ESP8266</h3>
+          </a>
+        </section>
+
+        <section
+          class="color-section b-section"
+          style="background: #00c389; color: #ffffff"
+        >
+          <a href="#topp">
+            <h1>2. Installing Arduino IDE</h1>
+            <h3>Get help installing Arduino IDE</h3>
+          </a>
+        </section>
+
+        <section class="color-section c-section">
+          <a href="instr3.html">
+            <h1>3. LED Sequence</h1>
+            <h3>Learn to blink and sequence LEDs</h3>
+          </a>
+        </section>
+
+        <section class="color-section d-section">
+          <a href="instr4.html">
+            <h1>4. Using a Relay</h1>
+            <h3>Control devices using relays</h3>
+          </a>
+        </section>
+
+        <section class="color-section e-section">
+          <a href="instr5.html">
+            <h1>5. Temp & Humidity Sensor</h1>
+            <h3>Measure and display temperature & humidity</h3>
+          </a>
+        </section>
+
+        <section class="color-section f-section">
+          <a href="instr6.html">
+            <h1>6. Ultrasonic Sensor</h1>
+            <h3>Measure distances with precision</h3>
+          </a>
+        </section>
+      </div>
+    </main>
+
+    <script src="index.js"></script>
   </body>
 </html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: hsl(0, 0%, 20%);
+        color: #ebebeb;
+      }
+
+      .navbar {
+        background-color: #2367c6;
+        padding: 1rem;
+        color: white;
+        text-align: center;
+        box-shadow: #dadada 5px 5px;
+      }
+
+      .container {
+        padding: 2rem;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input,
+      textarea {
+        padding: 0.6rem;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+      }
+
+      button {
+        background-color: #268cff;
+        color: white;
+        border: none;
+        padding: 0.7rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #184585;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Contact Us</h1>
+    </div>
+
+    <main>
+      <section class="container">
+        <form id="contact-form">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+          />
+
+          <label>Preferred contact method(s):</label>
+          <div>
+            <input
+              type="checkbox"
+              id="contact-email"
+              name="contact-method"
+              value="email"
+            />
+            <label for="contact-email">Email</label>
+
+            <input
+              type="checkbox"
+              id="contact-sms"
+              name="contact-method"
+              value="sms"
+            />
+            <label for="contact-sms">SMS</label>
+          </div>
+
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@domain.com"
+          />
+
+          <label for="phone">Phone number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="0701234567"
+            pattern="[0-9]{7,15}"
+          />
+
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Write your message here"
+            required
+          ></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      const emailCheckbox = document.getElementById("contact-email");
+      const smsCheckbox = document.getElementById("contact-sms");
+      const emailInput = document.getElementById("email");
+      const phoneInput = document.getElementById("phone");
+
+      function updateInputStates() {
+        emailInput.disabled = !emailCheckbox.checked;
+        phoneInput.disabled = !smsCheckbox.checked;
+
+        if (!emailCheckbox.checked) emailInput.value = "";
+        if (!smsCheckbox.checked) phoneInput.value = "";
+      }
+
+      emailCheckbox.addEventListener("change", updateInputStates);
+      smsCheckbox.addEventListener("change", updateInputStates);
+      window.addEventListener("load", updateInputStates);
+
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          const phonePattern = /^[0-9]{7,15}$/;
+
+          if (emailCheckbox.checked && !emailPattern.test(emailInput.value)) {
+            alert("Please enter a valid email address.");
+            emailInput.focus();
+            return;
+          }
+
+          if (smsCheckbox.checked && !phonePattern.test(phoneInput.value)) {
+            alert(
+              "Please enter a valid phone number (numbers only, between 7 and 15 digits)."
+            );
+            phoneInput.focus();
+            return;
+          }
+
+          if (!emailCheckbox.checked && !smsCheckbox.checked) {
+            alert("Please select at least one contact method.");
+            return;
+          }
+
+          alert("Form submitted successfully!");
+
+          // Add actual submission logic here, e.g. via fetch/AJAX
+        });
+    </script>
+  </body>
+</html>

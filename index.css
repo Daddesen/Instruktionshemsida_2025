@@ -17,6 +17,14 @@ body {
   box-shadow: #dadada 20px 7px;
 }
 
+p {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
 i {
   color: #7bb6cd;
   margin-right: 0.5rem;
@@ -80,7 +88,7 @@ section {
   .text {
     flex: 2;
     text-align: left;
-    margin: 0px 3rem;
+    margin: 0 3rem;
   }
 
   .buttons {
@@ -185,21 +193,6 @@ section {
   opacity: 0.8;
 }
 
-.color-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  z-index: 11;
-  transition: width 0.5s ease;
-}
-
-.color-section:hover::before {
-  width: 100%;
-}
-
 /* ANIMATION bakgrundsfyllning */
 
 .color-section::before {
@@ -217,12 +210,6 @@ section {
   width: 100%;
 }
 
-/* Textfärg ändras vid hover */
-.color-section:hover {
-  color: white;
-}
-
-/* Ändra textfärg vid hover för bättre kontrast */
 .color-section:hover {
   color: #ffffff;
 }
