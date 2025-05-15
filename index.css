@@ -426,3 +426,9 @@ button:hover {
   color: #dcdcdc;
   line-height: 1.6;
 }
+
+a {
+  color: #1e90ff;
+  text-decoration: underline;
+  font-family: Arial, sans-serif;
+}
