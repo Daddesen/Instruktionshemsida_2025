@@ -49,118 +49,11 @@
     </header>
 
     <main class="space" id="space">
-      <h1>2. Installing Arduino IDE</h1>
-
-      <div class="gray-box">
-        <p>
-          To upload code to your ESP8266 D1 Mini, you need a program called the
-          <strong>Arduino IDE</strong>. It allows you to write code and send it
-          to the microcontroller.
-        </p>
-        <br />
-        <h2>1. Download the Arduino IDE</h2>
-        <p>
-          Go to the official Arduino website and download the software for your
-          operating system:<br />
-          <a href="https://www.arduino.cc/en/software" target="_blank"
-            >https://www.arduino.cc/en/software</a
-          >
-        </p>
-        <ul>
-          <li>Choose the right version: Windows, Mac, or Linux.</li>
-          <li>Install it like any normal program.</li>
-        </ul>
-      </div>
-      <img
-        src="pictures/IDE_DOWN.png"
-        alt="Download image on Arduino's page"
-        class="responsive-image"
-      />
-      <div class="gray-box">
-        <h2>2. Add Support for ESP8266 (D1 Mini)</h2>
-        <p>
-          The Arduino IDE doesn’t support the ESP8266 by default, so we need to
-          install it manually. Here's how:
-        </p>
-
-        <ol>
-          <li>Open the Arduino IDE.</li>
-          <li>Go to <strong>File → Preferences</strong>.</li>
-          <li>
-            Find the field called <strong>"Additional Board URLs"</strong>.
-          </li>
-          <li>
-            Paste in this URL:
-            <br />
-            <code
-              >https://arduino.esp8266.com/stable/package_esp8266com_index.json</code
-            >
-          </li>
-          <li>Click <strong>OK</strong>.</li>
-        </ol>
-      </div>
-      <img
-        src="pictures/URL.jpeg"
-        alt="How to navigate to enter URL"
-        class="responsive-image"
-      />
-      <div class="gray-box">
-        <h2>3. Install the ESP8266 Board</h2>
-        <ol>
-          <li>Go to <strong>Tools → Board → Boards Manager</strong>.</li>
-          <li>Search for <strong>esp8266</strong>.</li>
-          <li>
-            Click <strong>Install</strong> on the package called “esp8266 by
-            ESP8266 Community”.
-          </li>
-        </ol>
-      </div>
-      <img
-        src="pictures/Board.png"
-        alt="Arduino's installation of boards"
-        class="responsive-image"
-      />
-      <div class="gray-box">
-        <h2>4. Select the Right Board</h2>
-        <p>After installation, go to:</p>
-        <ul>
-          <li>
-            <strong>Tools → Board</strong> and select
-            <strong>“LOLIN(WEMOS) D1 mini (clone)”</strong>.
-          </li>
-          <li>This is the correct board setting for your ESP8266 D1 mini.</li>
-        </ul>
-      </div>
-      <img
-        src="pictures/Tool.png"
-        alt="Select the Right Board and Port in Arduino"
-        class="responsive-image"
-      />
-      <div class="gray-box">
-        <h2>5. Connect Your Board</h2>
-        <ul>
-          <li>Use a USB cable to connect your D1 mini to your computer.</li>
-          <li>
-            Go to <strong>Tools → Port</strong> and select the port that appears
-            (usually COM3 or higher).
-          </li>
-        </ul>
-
-        <p>You’re now ready to upload your first program!</p>
-      </div>
-      <img
-        src="pictures/Tool.png"
-        alt="Select the Right Board and Port in Arduino"
-        class="responsive-image"
-      />
-      <h2>What does this mean?</h2>
+      <h1>5. Temp & Humidity Sensor</h1>
 
       <div class="code-container">
         <div class="code-header">
-          <span
-            ><i class="fa-solid fa-code"></i> C++ Random code? NO, very
-            important!</span
-          >
+          <span><i class="fa-solid fa-code"></i> C++ Arduino-sketch</span>
           <button class="copy-button">Copy</button>
         </div>
         <pre><code class="language-cpp">
@@ -199,6 +92,26 @@ void loop() {
         </p>
       </div>
       <br />
+
+      <h2>Video Demonstration</h2>
+      <video controls>
+        <source src="pictures/testmp4.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <h2>Temperature Sensor Image</h2>
+      <img
+        src="pictures/temp.jpeg"
+        alt="Temperature Sensor"
+        class="responsive-image"
+      />
+
+      <p>
+        HEj hej Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id
+        asperiores saepe laudantium quas, odit, sequi hic, tenetur aperiam minus
+        optio suscipit in cum magnam unde quasi adipisci facere debitis
+        architecto?
+      </p>
+
       <div class="buttons" id="buttons">
         <br />
 
@@ -209,11 +122,8 @@ void loop() {
           </a>
         </section>
 
-        <section
-          class="color-section b-section"
-          style="background: #00c389; color: #ffffff"
-        >
-          <a href="#topp">
+        <section class="color-section b-section">
+          <a href="instr2.html">
             <h1>2. Installing Arduino IDE</h1>
             <h3>Get help installing Arduino IDE</h3>
           </a>
@@ -233,8 +143,11 @@ void loop() {
           </a>
         </section>
 
-        <section class="color-section e-section">
-          <a href="instr5.html">
+        <section
+          class="color-section e-section"
+          style="background: #7c5fff; color: #ffffff"
+        >
+          <a href="#topp">
             <h1>5. Temp & Humidity Sensor</h1>
             <h3>Measure and display temperature & humidity</h3>
           </a>
