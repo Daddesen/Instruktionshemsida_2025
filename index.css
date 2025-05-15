@@ -101,7 +101,7 @@ section {
     width: 45%;
   }
 
-  main.Instructions {
+  main.space {
     margin: 0px 10vw;
   }
   video {
@@ -336,6 +336,46 @@ video:hover {
 }
 
 .responsive-image:hover {
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+/*  kontaktformulär */
+
+.containerF {
+  padding: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+input,
+textarea {
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+button {
+  background-color: #268cff;
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #184585;
+}
+
+#success-message {
+  color: green;
+  margin-top: 1em;
+  display: none;
 }

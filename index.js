@@ -47,3 +47,25 @@ document.querySelectorAll(".copy-button").forEach((button) => {
       });
   });
 });
+
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const successMessage = document.getElementById("success-message");
+
+    if (!form.checkValidity()) {
+      form.reportValidity(); // Visar inbyggda felmeddelanden
+      return;
+    }
+
+    successMessage.style.display = "block";
+
+    form.reset();
+
+    setTimeout(() => {
+      successMessage.style.display = "none";
+    }, 5000);
+  });

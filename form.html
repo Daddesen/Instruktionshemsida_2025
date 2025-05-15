@@ -3,68 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: hsl(0, 0%, 20%);
-        color: #ebebeb;
-      }
-
-      .navbar {
-        background-color: #2367c6;
-        padding: 1rem;
-        color: white;
-        text-align: center;
-        box-shadow: #dadada 5px 5px;
-      }
-
-      .container {
-        padding: 2rem;
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-
-      label {
-        font-weight: bold;
-      }
-
-      input,
-      textarea {
-        padding: 0.6rem;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-      }
-
-      button {
-        background-color: #268cff;
-        color: white;
-        border: none;
-        padding: 0.7rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      button:hover {
-        background-color: #184585;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>ESP8266 Learning</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
-  <body>
-    <div class="navbar">
-      <h1>Contact Us</h1>
-    </div>
+  <body class="index">
+    <header>
+      <nav class="navbar" id="topp">
+        <h1>ESP8266 Learning</h1>
+        <button class="hamburger" id="hamburger">☰</button>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="index.html"> <i class="fa-solid fa-house"></i> Home </a>
+          </li>
 
-    <main>
-      <section class="container">
+          <li>
+            <a href="form.html"><i class="fa-solid fa-paper-plane"></i> Form</a>
+          </li>
+          <li>
+            <a href="copyright.html">
+              <i class="fa-solid fa-copyright"></i> Copyright</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="space" id="space">
+      <section class="containerF">
         <form id="contact-form">
           <label for="name">Name:</label>
           <input
@@ -75,24 +44,14 @@
             required
           />
 
-          <label>Preferred contact method(s):</label>
-          <div>
-            <input
-              type="checkbox"
-              id="contact-email"
-              name="contact-method"
-              value="email"
-            />
-            <label for="contact-email">Email</label>
-
-            <input
-              type="checkbox"
-              id="contact-sms"
-              name="contact-method"
-              value="sms"
-            />
-            <label for="contact-sms">SMS</label>
-          </div>
+          <label for="address">Address:</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Your address"
+            required
+          />
 
           <label for="email">Email:</label>
           <input
@@ -100,6 +59,7 @@
             id="email"
             name="email"
             placeholder="example@domain.com"
+            required
           />
 
           <label for="phone">Phone number:</label>
@@ -109,6 +69,7 @@
             name="phone"
             placeholder="0701234567"
             pattern="[0-9]{7,15}"
+            required
           />
 
           <label for="message">Message:</label>
@@ -122,58 +83,44 @@
 
           <button type="submit">Submit</button>
         </form>
+
+        <p id="success-message">Meddelandet har skickats!</p>
+<!-- 
+        <label for="rating">Betyg:</label>
+        <div class="star-rating">
+          <input
+            type="radio"
+            id="star5"
+            name="rating"
+            value="5"
+            required
+          /><label for="star5" title="5 stjärnor">★</label>
+          <input type="radio" id="star4" name="rating" value="4" /><label
+            for="star4"
+            title="4 stjärnor"
+            >★</label
+          >
+          <input type="radio" id="star3" name="rating" value="3" /><label
+            for="star3"
+            title="3 stjärnor"
+            >★</label
+          >
+          <input type="radio" id="star2" name="rating" value="2" /><label
+            for="star2"
+            title="2 stjärnor"
+            >★</label
+          >
+          <input type="radio" id="star1" name="rating" value="1" /><label
+            for="star1"
+            title="1 stjärna"
+            >★</label
+          > -->
+        </div>
       </section>
     </main>
 
-    <script>
-      const emailCheckbox = document.getElementById("contact-email");
-      const smsCheckbox = document.getElementById("contact-sms");
-      const emailInput = document.getElementById("email");
-      const phoneInput = document.getElementById("phone");
+    <script></script>
 
-      function updateInputStates() {
-        emailInput.disabled = !emailCheckbox.checked;
-        phoneInput.disabled = !smsCheckbox.checked;
-
-        if (!emailCheckbox.checked) emailInput.value = "";
-        if (!smsCheckbox.checked) phoneInput.value = "";
-      }
-
-      emailCheckbox.addEventListener("change", updateInputStates);
-      smsCheckbox.addEventListener("change", updateInputStates);
-      window.addEventListener("load", updateInputStates);
-
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          const phonePattern = /^[0-9]{7,15}$/;
-
-          if (emailCheckbox.checked && !emailPattern.test(emailInput.value)) {
-            alert("Please enter a valid email address.");
-            emailInput.focus();
-            return;
-          }
-
-          if (smsCheckbox.checked && !phonePattern.test(phoneInput.value)) {
-            alert(
-              "Please enter a valid phone number (numbers only, between 7 and 15 digits)."
-            );
-            phoneInput.focus();
-            return;
-          }
-
-          if (!emailCheckbox.checked && !smsCheckbox.checked) {
-            alert("Please select at least one contact method.");
-            return;
-          }
-
-          alert("Form submitted successfully!");
-
-          // Add actual submission logic here, e.g. via fetch/AJAX
-        });
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
