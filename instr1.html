@@ -51,41 +51,339 @@
     <main class="space" id="space">
       <h1>1. About ESP8266</h1>
 
-      <div class="code-container">
-        <div class="code-header">
-          <span><i class="fa-solid fa-code"></i> C++ Code Example</span>
-          <button class="copy-button">Copy</button>
-        </div>
-        <pre><code class="language-cpp">
-      void setup() {
-        Serial.begin(9600);
-      }
-      
-      void loop() {
-        Serial.println("Hello, world!");
-        delay(1000);
-      }
-        </code></pre>
-      </div>
+      <h2>ESP8266 D1 mini</h2>
 
-      <h2>Video Demonstration</h2>
-      <video controls>
-        <source src="pictures/testmp4.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <h2>Temperature Sensor Image</h2>
+      <div class="image-row">
+        <img
+          src="pictures/ESP_TOP.jpeg"
+          alt="ESP8266 seen from above"
+          class="responsive-image"
+        />
+        <img
+          src="pictures/ESP.jpeg"
+          alt="ESP8266 seen from below"
+          class="responsive-image"
+        />
+      </div>
+      <div class="gray-box">
+        <p>
+          The <strong>ESP8266 D1 Mini</strong> is a small and powerful
+          microcontroller board that includes a built-in
+          <strong>WiFi chip</strong>. It is very popular in
+          <em>Internet of Things</em> (IoT) projects because it can easily
+          connect to the internet and control devices wirelessly — for example,
+          lights, sensors, or motors.
+        </p>
+
+        <p>
+          The board works like the “brain” of a system: it can be programmed
+          using the
+          <strong>Arduino IDE</strong> and performs exactly what you instruct it
+          to do, such as measuring temperature, sending data to a website, or
+          turning on an LED when a sensor is triggered. Programs are uploaded
+          via the <strong>Micro-USB port</strong>.
+        </p>
+
+        <h3>Why use the D1 Mini?</h3>
+        <ul>
+          <li>
+            It is <strong>compact</strong>, making it suitable for small
+            projects.
+          </li>
+          <li>
+            Has <strong>built-in WiFi</strong>, perfect for smart home
+            applications and wireless control.
+          </li>
+          <li>
+            Compatible with <strong>Arduino code</strong>, making it easy to
+            program.
+          </li>
+          <li>
+            <strong>Affordable</strong> yet <strong>powerful</strong> — it can
+            handle multiple tasks at once.
+          </li>
+        </ul>
+
+        <h3>Common use cases</h3>
+        <ul>
+          <li>Send sensor data to a web server.</li>
+          <li>
+            Control lighting from a smartphone using Home Assistant or HomeKit.
+          </li>
+          <li>
+            Build your own smart door locks, thermometers, or weather stations.
+          </li>
+          <li>Automate systems at home or in school projects.</li>
+        </ul>
+
+        <h3>Key components:</h3>
+        <ul>
+          <li>
+            <strong>RESET button:</strong> Used to restart the microcontroller
+            board.
+          </li>
+          <li>
+            <strong>ESP8266 WiFi chip:</strong> The main component that handles
+            both programming and wireless communication.
+          </li>
+          <li>
+            <strong>GPIO pins:</strong> Used to control LEDs, sensors, motors,
+            and more (D0 to D8, and A0).
+          </li>
+          <li>
+            <strong>Micro-USB port:</strong> Used to upload code and supply
+            power to the board.
+          </li>
+        </ul>
+      </div>
+      <br />
+      <h1>ESP8266 seen from above:</h1>
       <img
-        src="pictures/temp.jpeg"
-        alt="Temperature Sensor"
+        src="pictures/ESP_TOP_PAINT.jpeg"
+        alt="ESP8266 seen from above"
         class="responsive-image"
       />
+      <div class="gray-box">
+        <div class="gray-box">
+          <p style="color: #ff5c5c">
+            <strong>Micro-USB Port:</strong>
+            This is the small USB connector on the ESP8266 D1 Mini. It serves
+            two important purposes:
+          </p>
+          <ul>
+            <li>
+              It is used to <strong>upload code</strong> from your computer to
+              the board using the Arduino IDE.
+            </li>
+            <li>
+              It also supplies <strong>power</strong> (5V) to the board when
+              connected via USB.
+            </li>
+          </ul>
+        </div>
+        <br />
+        <div class="gray-box">
+          <p style="color: #55d97f">
+            <strong>RESET Button:</strong>
+            This small push button is used to <strong>restart</strong> the
+            microcontroller. Pressing it will:
+          </p>
+          <ul>
+            <li>
+              Reboot the chip and restart the current running program from the
+              beginning.
+            </li>
+            <li>
+              Help exit from certain error states or reconnect to WiFi if there
+              were issues.
+            </li>
+          </ul>
+        </div>
+        <br />
+        <div class="gray-box">
+          <p style="color: #f9d23b">
+            <strong>Pin overview (D0–D8, A0, 3V3, 5V, G):</strong>
+          </p>
+          <br />
+          <p>
+            The ESP8266 D1 Mini has several pins (also called headers) that you
+            can use to connect sensors, LEDs, and other electronics. Here's a
+            simple explanation of the most important ones:
+          </p>
 
-      <p>
-        HEj hej Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id
-        asperiores saepe laudantium quas, odit, sequi hic, tenetur aperiam minus
-        optio suscipit in cum magnam unde quasi adipisci facere debitis
-        architecto?
-      </p>
+          <ul>
+            <li>
+              <strong>D0 (GPIO16):</strong> Can be used for digital
+              input/output. Often used for deep sleep wake-up.
+            </li>
+            <li>
+              <strong>D1 (GPIO5) & D2 (GPIO4):</strong> Standard pins for I²C
+              communication (SCL and SDA).
+            </li>
+            <li>
+              <strong>D3 (GPIO0):</strong> Digital pin, but also used during
+              boot – avoid connecting things directly when uploading code.
+            </li>
+            <li>
+              <strong>D4 (GPIO2):</strong> Digital pin connected to the onboard
+              LED (blue). Good for test LEDs.
+            </li>
+            <li>
+              <strong
+                >D5 (GPIO14), D6 (GPIO12), D7 (GPIO13), D8 (GPIO15):</strong
+              >
+              Used for SPI or as regular digital I/O.
+            </li>
+            <li>
+              <strong>A0:</strong> Analog input (0–3.3V). Use it to read values
+              from sensors like temperature, light, or potentiometers.
+            </li>
+          </ul>
+
+          <p>
+            <strong>Power and Ground pins:</strong>
+          </p>
+          <ul>
+            <li>
+              <strong>3V3:</strong> Outputs 3.3 volts – useful for powering
+              sensors that need 3.3V.
+            </li>
+            <li>
+              <strong>5V:</strong> Outputs 5 volts when powered via USB. Can be
+              used to power external components.
+            </li>
+            <li>
+              <strong>G:</strong> Ground – must be connected to the ground of
+              your circuit. All components need this connection.
+            </li>
+          </ul>
+        </div>
+        <br />
+        <div class="gray-box">
+          <p style="color: #4aa8ff">
+            <strong>Main Chip – ESP8266:</strong>
+            This is the actual brain of the D1 Mini. It's a
+            <strong>32-bit microcontroller</strong> that includes:
+          </p>
+
+          <ul>
+            <li>A <strong>CPU</strong> running at 80 MHz or 160 MHz</li>
+            <li>
+              Built-in <strong>WiFi module</strong> for wireless communication
+            </li>
+            <li>
+              Support for <strong>10 GPIO pins</strong>, PWM, I²C, SPI, UART,
+              and more
+            </li>
+            <li>
+              About <strong>50 KB RAM</strong> for user programs and
+              <strong>4MB flash memory</strong> for storing your code
+            </li>
+          </ul>
+        </div>
+      </div>
+      <br />
+
+      <h1>ESP8266 seen from below:</h1>
+      <img
+        src="pictures/ESP_PAINT.jpeg"
+        alt="ESP8266 seen from below"
+        class="responsive-image"
+      />
+      <div class="gray-box">
+        <div class="gray-box">
+          <p style="color: #ff5c5c">
+            <strong>Status LED (Information Light):</strong>
+            This small LED (usually blue) is located near the USB port on the D1
+            Mini. It is connected to pin D4 (GPIO2) and is used to indicate
+            activity or status.
+          </p>
+          <ul>
+            <li>
+              It can blink to show that code is running or WiFi is connecting.
+            </li>
+            <li>
+              You can control it manually using digitalWrite(D4, LOW) or HIGH.
+            </li>
+            <li>Useful for debugging and feedback in your project.</li>
+          </ul>
+        </div>
+        <br />
+
+        <div class="gray-box">
+          <p style="color: #55d97f">
+            <strong>WiFi Antenna:</strong>
+            The printed metal trace on the top edge of the board is the onboard
+            antenna. It sends and receives radio signals for WiFi communication.
+          </p>
+          <ul>
+            <li>
+              It's integrated directly onto the PCB – no external antenna
+              needed.
+            </li>
+            <li>Ensure it's not blocked by metal or wires for best signal.</li>
+            <li>
+              Provides wireless range for IoT applications like sensors or
+              remote control.
+            </li>
+          </ul>
+        </div>
+        <br />
+        <div class="gray-box">
+          <p style="color: #f9d23b">
+            <strong>Pin overview (D0–D8, A0, 3V3, 5V, G):</strong>
+          </p>
+          <br />
+          <p>
+            The ESP8266 D1 Mini has several pins (also called headers) that you
+            can use to connect sensors, LEDs, and other electronics. Here's a
+            simple explanation of the most important ones:
+          </p>
+
+          <ul>
+            <li>
+              <strong>D0 (GPIO16):</strong> Can be used for digital
+              input/output. Often used for deep sleep wake-up.
+            </li>
+            <li>
+              <strong>D1 (GPIO5) & D2 (GPIO4):</strong> Standard pins for I²C
+              communication (SCL and SDA).
+            </li>
+            <li>
+              <strong>D3 (GPIO0):</strong> Digital pin, but also used during
+              boot – avoid connecting things directly when uploading code.
+            </li>
+            <li>
+              <strong>D4 (GPIO2):</strong> Digital pin connected to the onboard
+              LED (blue). Good for test LEDs.
+            </li>
+            <li>
+              <strong
+                >D5 (GPIO14), D6 (GPIO12), D7 (GPIO13), D8 (GPIO15):</strong
+              >
+              Used for SPI or as regular digital I/O.
+            </li>
+            <li>
+              <strong>A0:</strong> Analog input (0–3.3V). Use it to read values
+              from sensors like temperature, light, or potentiometers.
+            </li>
+          </ul>
+
+          <p>
+            <strong>Power and Ground pins:</strong>
+          </p>
+          <ul>
+            <li>
+              <strong>3V3:</strong> Outputs 3.3 volts – useful for powering
+              sensors that need 3.3V.
+            </li>
+            <li>
+              <strong>5V:</strong> Outputs 5 volts when powered via USB. Can be
+              used to power external components.
+            </li>
+            <li>
+              <strong>G:</strong> Ground – must be connected to the ground of
+              your circuit. All components need this connection.
+            </li>
+          </ul>
+        </div>
+        <br />
+        <div class="gray-box">
+          <p style="color: #4aa8ff">
+            <strong>ESP8266 WiFi Chip:</strong>
+            This is the main WiFi system-on-chip (SoC) mounted at the center of
+            the board. It's responsible for both internet communication and
+            running your code.
+          </p>
+          <ul>
+            <li>
+              It connects to your home network or acts as an access point.
+            </li>
+            <li>It supports TCP/IP, HTTP, MQTT, and other WiFi protocols.</li>
+            <li>This chip is what makes the D1 Mini "smart" and connected.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="buttons" id="buttons">
         <br />

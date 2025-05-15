@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <title>About ESP8266</title>
+
+    <link rel="stylesheet" href="index.css" />
+
+    <!-- Prism.js CSS för färger -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <!-- Prism.js Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <!-- C++ språkstöd -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar" id="topp">
+        <h1>ESP8266 Learning</h1>
+        <button class="hamburger" id="hamburger">☰</button>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="index.html"> <i class="fa-solid fa-house"></i> Home </a>
+          </li>
+          <li>
+            <a href="#buttons">
+              <i class="fa-solid fa-graduation-cap"></i> Instructions
+            </a>
+          </li>
+          <li>
+            <a href="form.html"><i class="fa-solid fa-paper-plane"></i> Form</a>
+          </li>
+          <li>
+            <a href="copyright.html">
+              <i class="fa-solid fa-copyright"></i> Copyright</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="space" id="space">
+      <h1>3. LED Sequence</h1>
+
+      <div class="gray-box">
+        <h1>Step-by-Step Guide: Controlling an RGB LED with Arduino</h1>
+        <p>
+          This guide shows you how to write code to control an RGB LED using a
+          microcontroller like Arduino or ESP8266.
+        </p>
+        <br />
+        <h2>What is an RGB LED?</h2>
+        <p>
+          An RGB LED combines Red, Green, and Blue LEDs in one. You can create
+          different colors by turning each one on or off.
+        </p>
+        <br />
+        <h2>What You Need</h2>
+        <ul>
+          <li>1x RGB LED</li>
+          <li>1x ESP8266 microcontroller</li>
+          <li>Wires + breadboard</li>
+          <li>Arduino IDE installed</li>
+        </ul>
+      </div>
+      <br />
+      <div class="gray-box">
+        <h2>Step 1: Define the Pins</h2>
+        <p>
+          Every LED leg (red, green, and blue) must be connected to a pin on the
+          microcontroller.
+        </p>
+        <p>
+          In the code, we give each pin a name using a
+          <strong>variable</strong>. This helps us refer to the pins later in an
+          easy way.
+        </p>
+        <p>
+          Think of it like naming a contact in your phone. Instead of
+          remembering the number, you just write “Red LED”.
+        </p>
+        <p>Here’s what each line means:</p>
+        <ul>
+          <li>
+            <code>const int redPin = D1;</code> → The red LED wire is connected
+            to pin D1.
+          </li>
+          <li>
+            <code>const int greenPin = D2;</code> → The green LED wire is
+            connected to pin D2.
+          </li>
+          <li>
+            <code>const int bluePin = D3;</code> → The blue LED wire is
+            connected to pin D3.
+          </li>
+        </ul>
+      </div>
+
+      <div class="code-container">
+        <div class="code-header">
+          <span><i class="fa-solid fa-code"></i>C++ Pin Configuration</span>
+          <button class="copy-button">Copy</button>
+        </div>
+        <pre><code class="language-cpp">const int redPin = D1;
+const int greenPin = D2;
+const int bluePin = D3;</code></pre>
+      </div>
+
+      <div class="gray-box">
+        <h2>Step 2: Write the Setup Function</h2>
+        <p>
+          The <code>setup()</code> function runs only once when the board turns
+          on. It’s like turning on a machine and pressing the “start” button.
+        </p>
+        <p>
+          Here, we tell the board that we’ll be sending signals
+          <strong>out</strong> through the LED pins. That’s called “output
+          mode”.
+        </p>
+        <p>
+          We also turn off all the colors to start with. Since we are using a
+          <strong>common cathode</strong> LED, we turn it off by writing
+          <code>HIGH</code>.
+        </p>
+      </div>
+
+      <div class="code-container">
+        <div class="code-header">
+          <span><i class="fa-solid fa-code"></i> C++ Setup Function</span>
+          <button class="copy-button">Copy</button>
+        </div>
+        <pre><code class="language-cpp">void setup() {
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, HIGH);
+}</code></pre>
+      </div>
+
+      <div class="gray-box">
+        <h2>Step 3: Write the Loop Function</h2>
+        <p>
+          The <code>loop()</code> function runs again and again, forever. This
+          is where we create the color-changing pattern.
+        </p>
+        <p>
+          The LED lights turn on for 1 second each, then turn off, and repeat.
+        </p>
+        <ul>
+          <li><code>LOW</code> = turn LED ON (for this type of LED)</li>
+          <li><code>HIGH</code> = turn LED OFF</li>
+          <li><code>delay(1000)</code> = wait for 1 second</li>
+        </ul>
+      </div>
+
+      <div class="code-container">
+        <div class="code-header">
+          <span
+            ><i class="fa-solid fa-code"></i> C++ Loop Function (Color
+            Cycle)</span
+          >
+          <button class="copy-button">Copy</button>
+        </div>
+        <pre><code class="language-cpp">void loop() {
+  // RED
+  digitalWrite(redPin, LOW);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, HIGH);
+  delay(1000);
+
+  // GREEN
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, LOW);
+  digitalWrite(bluePin, HIGH);
+  delay(1000);
+
+  // BLUE
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, LOW);
+  delay(1000);
+
+  // ALL OFF
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, HIGH);
+  delay(1000);
+}</code></pre>
+      </div>
+
+      <div class="gray-box">
+        <h2>What Does It Do?</h2>
+        <p>
+          This code controls an RGB LED using three digital pins on a
+          microcontroller, like ESP8266 or Arduino.
+        </p>
+
+        <h3>Pin Setup</h3>
+        <ul>
+          <li><code>D1</code> controls RED</li>
+          <li><code>D2</code> controls GREEN</li>
+          <li><code>D3</code> controls BLUE</li>
+        </ul>
+
+        <h3>Program Flow</h3>
+        <ol>
+          <li>Red turns ON for 1 second</li>
+          <li>Green turns ON for 1 second</li>
+          <li>Blue turns ON for 1 second</li>
+          <li>All turn OFF for 1 second</li>
+          <li>The loop repeats forever</li>
+        </ol>
+
+        <p>
+          Congratulations! You’ve just made your first color-changing LED
+          program!
+        </p>
+      </div>
+      <br />
+
+      <div class="gray-box">
+        <h2>Full Code Overview</h2>
+        <p>
+          Here is the complete code all in one place. You can copy and paste
+          this into the Arduino IDE to upload it to your board:
+        </p>
+      </div>
+
+      <div class="code-container">
+        <div class="code-header">
+          <span><i class="fa-solid fa-code"></i> Full C++ Code</span>
+          <button class="copy-button">Copy</button>
+        </div>
+        <pre><code class="language-cpp">const int redPin = D1;
+const int greenPin = D2;
+const int bluePin = D3;
+
+void setup() {
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, HIGH);
+}
+
+void loop() {
+  // RED
+  digitalWrite(redPin, LOW);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, HIGH);
+  delay(1000);
+
+  // GREEN
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, LOW);
+  digitalWrite(bluePin, HIGH);
+  delay(1000);
+
+  // BLUE
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, LOW);
+  delay(1000);
+
+  // ALL OFF
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, HIGH);
+  delay(1000);
+}</code></pre>
+      </div>
+
+      <div class="buttons" id="buttons">
+        <br />
+
+        <section class="color-section a-section">
+          <a href="instr1.html">
+            <h1>1. About ESP8266</h1>
+            <h3>Understand the logic and parts of an ESP8266</h3>
+          </a>
+        </section>
+
+        <section class="color-section b-section">
+          <a href="instr2.html">
+            <h1>2. Installing Arduino IDE</h1>
+            <h3>Get help installing Arduino IDE</h3>
+          </a>
+        </section>
+
+        <section
+          class="color-section c-section"
+          style="background: #00b7d9; color: #ffffff"
+        >
+          <a href="#topp">
+            <h1>3. LED Sequence</h1>
+            <h3>Learn to blink and sequence LEDs</h3>
+          </a>
+        </section>
+
+        <section class="color-section d-section">
+          <a href="instr4.html">
+            <h1>4. Using a Relay</h1>
+            <h3>Control devices using relays</h3>
+          </a>
+        </section>
+
+        <section class="color-section e-section">
+          <a href="instr5.html">
+            <h1>5. Temp & Humidity Sensor</h1>
+            <h3>Measure and display temperature & humidity</h3>
+          </a>
+        </section>
+
+        <section class="color-section f-section">
+          <a href="instr6.html">
+            <h1>6. Ultrasonic Sensor</h1>
+            <h3>Measure distances with precision</h3>
+          </a>
+        </section>
+      </div>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>

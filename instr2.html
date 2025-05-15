@@ -53,20 +53,45 @@
 
       <div class="code-container">
         <div class="code-header">
-          <span><i class="fa-solid fa-code"></i> C++ Code Example</span>
+          <span><i class="fa-solid fa-code"></i> C++ Arduino-sketch</span>
           <button class="copy-button">Copy</button>
         </div>
         <pre><code class="language-cpp">
-      void setup() {
-        Serial.begin(9600);
-      }
-      
-      void loop() {
-        Serial.println("Hello, world!");
-        delay(1000);
-      }
+void setup() {
+  // put your setup code here, to run once:
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+}
         </code></pre>
       </div>
+      <div class="gray-box">
+        <h2>Explanation</h2>
+        <p>
+          This is a basic structure of an Arduino program, also called a
+          "sketch". It consists of two main functions:
+        </p>
+        <ul>
+          <li>
+            <code>setup()</code>: This function runs once when the
+            microcontroller starts. It is used to set up things like pin modes,
+            serial communication, or initializing libraries. In this example, it
+            is empty.
+          </li>
+          <li>
+            <code>loop()</code>: This function runs continuously in a loop after
+            <code>setup()</code> is done. It contains the main logic of your
+            program. This is where you would put the code that needs to run
+            repeatedly. In this example, it is also empty.
+          </li>
+        </ul>
+        <p>
+          This structure is required for all Arduino programs, even if they
+          don’t do anything yet.
+        </p>
+      </div>
+      <br />
 
       <h2>Video Demonstration</h2>
       <video controls>

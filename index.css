@@ -4,6 +4,7 @@ body {
   padding: 0;
   background: hsl(0, 0%, 20%);
   color: #ebebeb;
+  font-size: large;
 }
 
 .navbar {
@@ -14,7 +15,7 @@ body {
   padding: 0.5rem 1rem;
   color: rgb(255, 255, 255);
   position: relative;
-  box-shadow: #dadada 20px 7px;
+  box-shadow: #dadada 0 7px;
 }
 
 p {
@@ -104,6 +105,7 @@ section {
   main.space {
     margin: 0px 10vw;
   }
+
   video {
     width: auto;
     height: 50vh;
@@ -114,9 +116,27 @@ section {
     height: 50vh;
     margin-left: 0 !important;
   }
+  .image-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .image-row .responsive-image {
+    margin: 30px 0;
+  }
+  .nav-off {
+    display: none !important;
+  }
+}
+.nav-links li {
+  display: list-item;
 }
 
 @media screen and (orientation: portrait) {
+  body {
+    font-size: small;
+  }
   .nav-links {
     display: none;
     flex-direction: column;
@@ -150,6 +170,13 @@ section {
 
   i {
     color: #2398c6;
+  }
+  .nav-on {
+    display: none !important;
+  }
+  ul {
+    margin: 0;
+    padding-left: 15px;
   }
 }
 
@@ -378,4 +405,25 @@ button:hover {
   color: green;
   margin-top: 1em;
   display: none;
+}
+
+/* box */
+
+.gray-box {
+  background-color: #3e3e3e; /* Mörkgrå bakgrund, passar med ditt tema */
+  padding: 2rem;
+  border-radius: 15px;
+  /* margin: 2rem auto; */
+  /* max-width: 900px; */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.gray-box h2 {
+  color: #ffffff;
+}
+
+.gray-box p,
+.gray-box li {
+  color: #dcdcdc;
+  line-height: 1.6;
 }
