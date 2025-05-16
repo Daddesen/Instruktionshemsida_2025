@@ -178,6 +178,9 @@ section {
     margin: 0;
     padding-left: 15px;
   }
+  .gray-box {
+    padding: 1.5rem 1rem !important;
+  }
 }
 
 /* KNAPPARNA */
@@ -410,7 +413,7 @@ button:hover {
 
 .gray-box {
   background-color: #3e3e3e; /* Mörkgrå bakgrund, passar med ditt tema */
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 15px;
   /* margin: 2rem auto; */
   /* max-width: 900px; */
@@ -438,4 +441,34 @@ a {
   white-space: nowrap;
   display: block;
   padding: 0.5rem;
+}
+/* Footer */
+
+.footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: #b36bff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.footer-links li {
+  display: inline;
+  margin: 0 8px;
 }
