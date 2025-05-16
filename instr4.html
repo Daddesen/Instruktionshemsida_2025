@@ -51,66 +51,109 @@
     <main class="space" id="space">
       <h1>4. Using a Relay</h1>
 
-      <div class="code-container">
-        <div class="code-header">
-          <span><i class="fa-solid fa-code"></i> C++ Arduino-sketch</span>
-          <button class="copy-button">Copy</button>
-        </div>
-        <pre><code class="language-cpp">
-void setup() {
-  // put your setup code here, to run once:
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-}
-        </code></pre>
-      </div>
       <div class="gray-box">
-        <h2>Explanation</h2>
+        <h2>Step-by-Step Guide: Control High Voltage with a Relay</h2>
         <p>
-          This is a basic structure of an Arduino program, also called a
-          "sketch". It consists of two main functions:
+          A relay lets your ESP8266 turn on or off a device that runs on higher
+          voltage, like a lamp or motor.
+        </p>
+        <br />
+        <h2>What is a Relay?</h2>
+        <p>
+          A relay is an electrically controlled switch. You can use a small
+          signal from the ESP8266 to control a larger electrical load.
         </p>
         <ul>
-          <li>
-            <code>setup()</code>: This function runs once when the
-            microcontroller starts. It is used to set up things like pin modes,
-            serial communication, or initializing libraries. In this example, it
-            is empty.
-          </li>
-          <li>
-            <code>loop()</code>: This function runs continuously in a loop after
-            <code>setup()</code> is done. It contains the main logic of your
-            program. This is where you would put the code that needs to run
-            repeatedly. In this example, it is also empty.
-          </li>
+          <li>ESP8266 controls the relay using a digital pin</li>
+          <li>The relay switches ON/OFF a high-power device</li>
+          <li>Great for smart home projects!</li>
+        </ul>
+      </div>
+
+      <div class="image-row">
+        <img
+          src="pictures/relay_overview.png"
+          alt="Relay overview"
+          class="responsive-image"
+        />
+        <img
+          src="pictures/relay_wiring.png"
+          alt="Relay wiring diagram"
+          class="responsive-image"
+        />
+      </div>
+
+      <div class="gray-box">
+        <h2>Step 1: Wiring the Relay</h2>
+        <p>Connect the relay module to the ESP8266 D1 Mini like this:</p>
+        <ul>
+          <li><strong>VCC</strong> → <code>5V</code></li>
+          <li><strong>GND</strong> → <code>GND</code></li>
+          <li><strong>IN</strong> → <code>D1</code> (GPIO5)</li>
         </ul>
         <p>
-          This structure is required for all Arduino programs, even if they
-          don’t do anything yet.
+          <strong>NOTE:</strong> Many relay modules are active LOW, meaning
+          <code>LOW</code> turns them ON.
         </p>
       </div>
       <br />
 
+      <div class="gray-box">
+        <h2>Step 2: Test Code</h2>
+        <p>
+          This code turns the relay ON for 1 second and OFF for 1 second in a
+          loop.
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span><i class="fa-solid fa-code"></i> C++ Relay Test</span>
+            <button class="copy-button">Copy</button>
+          </div>
+          <pre><code class="language-cpp">#define RELAY_PIN D1 // GPIO5
+
+void setup() {
+  pinMode(RELAY_PIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(RELAY_PIN, LOW);  // Relay ON
+  delay(1000);
+  digitalWrite(RELAY_PIN, HIGH); // Relay OFF
+  delay(1000);
+}</code></pre>
+        </div>
+
+        <h2>What Does It Do?</h2>
+        <ul>
+          <li><code>pinMode()</code> sets D1 as an OUTPUT pin</li>
+          <li><code>LOW</code> turns the relay ON (activates the switch)</li>
+          <li><code>HIGH</code> turns the relay OFF</li>
+          <li><code>delay(1000)</code> waits 1 second between each switch</li>
+        </ul>
+        <p>
+          Now you can hear a "click" every second. That’s the relay switching!
+        </p>
+      </div>
+      <br />
+      <div class="gray-box">
+        <h2>⚠️ Safety Warning</h2>
+        <p>
+          If you're using the relay to control 230V (AC power), follow these
+          rules:
+        </p>
+        <ul>
+          <li>Never touch the relay when it’s powered</li>
+          <li>Use heat-shrink tubing or enclosures</li>
+          <li>Ask a teacher or adult if you’re unsure</li>
+        </ul>
+        <p>Always double-check your wiring and be safe!</p>
+      </div>
       <h2>Video Demonstration</h2>
       <video controls>
         <source src="pictures/testmp4.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <h2>Temperature Sensor Image</h2>
-      <img
-        src="pictures/temp.jpeg"
-        alt="Temperature Sensor"
-        class="responsive-image"
-      />
-
-      <p>
-        HEj hej Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id
-        asperiores saepe laudantium quas, odit, sequi hic, tenetur aperiam minus
-        optio suscipit in cum magnam unde quasi adipisci facere debitis
-        architecto?
-      </p>
 
       <div class="buttons" id="buttons">
         <br />

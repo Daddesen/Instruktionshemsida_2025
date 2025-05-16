@@ -51,66 +51,179 @@
     <main class="space" id="space">
       <h1>5. Temp & Humidity Sensor</h1>
 
-      <div class="code-container">
-        <div class="code-header">
-          <span><i class="fa-solid fa-code"></i> C++ Arduino-sketch</span>
-          <button class="copy-button">Copy</button>
-        </div>
-        <pre><code class="language-cpp">
-void setup() {
-  // put your setup code here, to run once:
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-}
-        </code></pre>
-      </div>
       <div class="gray-box">
-        <h2>Explanation</h2>
+        <h2>Measure Temperature and Humidity with DHT11</h2>
         <p>
-          This is a basic structure of an Arduino program, also called a
-          "sketch". It consists of two main functions:
-        </p>
-        <ul>
-          <li>
-            <code>setup()</code>: This function runs once when the
-            microcontroller starts. It is used to set up things like pin modes,
-            serial communication, or initializing libraries. In this example, it
-            is empty.
-          </li>
-          <li>
-            <code>loop()</code>: This function runs continuously in a loop after
-            <code>setup()</code> is done. It contains the main logic of your
-            program. This is where you would put the code that needs to run
-            repeatedly. In this example, it is also empty.
-          </li>
-        </ul>
-        <p>
-          This structure is required for all Arduino programs, even if they
-          don’t do anything yet.
+          This guide shows how to use a DHT11 sensor to read temperature and
+          humidity values and display them in the Arduino Serial Monitor.
         </p>
       </div>
       <br />
 
-      <h2>Video Demonstration</h2>
-      <video controls>
-        <source src="pictures/testmp4.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <h2>Temperature Sensor Image</h2>
-      <img
-        src="pictures/temp.jpeg"
-        alt="Temperature Sensor"
-        class="responsive-image"
-      />
+      <div class="gray-box">
+        <h2>What You Need</h2>
+        <ul>
+          <li>1x ESP8266 D1 Mini</li>
+          <li>1x DHT11 sensor (3-pin or 4-pin)</li>
+          <li>Wires + breadboard</li>
+        </ul>
+      </div>
 
-      <p>
-        HEj hej Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id
-        asperiores saepe laudantium quas, odit, sequi hic, tenetur aperiam minus
-        optio suscipit in cum magnam unde quasi adipisci facere debitis
-        architecto?
-      </p>
+      <div class="image-row">
+        <img
+          src="pictures/dht11_sensor.png"
+          alt="DHT11 sensor"
+          class="responsive-image"
+        />
+        <img
+          src="pictures/dht11_wiring.png"
+          alt="Wiring diagram for DHT11"
+          class="responsive-image"
+        />
+      </div>
+
+      <div class="gray-box">
+        <h2>Wiring the DHT11 Sensor</h2>
+        <p>Connect your sensor like this (assuming 3-pin version):</p>
+        <ul>
+          <li><strong>VCC</strong> → <code>3.3V</code> on D1 Mini</li>
+          <li><strong>GND</strong> → <code>GND</code></li>
+          <li><strong>DATA</strong> → <code>D4</code> (GPIO2)</li>
+        </ul>
+        <p>
+          📌 Some DHT11 sensors also need a pull-up resistor between VCC and
+          DATA.
+        </p>
+      </div>
+      <br />
+      <div class="gray-box">
+        <h2>Install the DHT Library</h2>
+        <ol>
+          <li>Open Arduino IDE</li>
+          <li>Go to <strong>Tools → Manage Libraries</strong></li>
+          <li>Search for <strong>"DHT sensor library"</strong></li>
+          <li>Install the one by <strong>Adafruit</strong></li>
+        </ol>
+      </div>
+      <br />
+      <div class="gray-box">
+        <h2>Example Code</h2>
+        <p>
+          This code will print temperature and humidity values to the Serial
+          Monitor every 2 seconds.
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span><i class="fa-solid fa-code"></i> C++ DHT11 Example</span>
+            <button class="copy-button">Copy</button>
+          </div>
+          <pre><code class="language-cpp">#include "DHT.h"
+
+#define DHTPIN D4      // GPIO2
+#define DHTTYPE DHT11  // DHT11 or DHT22
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+  Serial.println("Reading DHT11 sensor...");
+}
+
+void loop() {
+  float temp = dht.readTemperature();
+  float hum = dht.readHumidity();
+
+  if (isnan(temp) || isnan(hum)) {
+    Serial.println("Failed to read from DHT sensor!");
+  } else {
+    Serial.print("Temperature: ");
+    Serial.print(temp);
+    Serial.print(" °C  |  Humidity: ");
+    Serial.print(hum);
+    Serial.println(" %");
+  }
+
+  delay(2000);
+}</code></pre>
+        </div>
+        <h2>What Does the Code Do?</h2>
+
+        <h3>Setup Section</h3>
+        <ul>
+          <li>
+            <code>#include "DHT.h"</code> – Inkluderar biblioteket som gör det
+            enkelt att läsa från sensorn.
+          </li>
+          <li>
+            <code>#define DHTPIN D4</code> – Anger att DATA-pinnen på sensorn är
+            kopplad till pin D4 (GPIO2).
+          </li>
+          <li>
+            <code>#define DHTTYPE DHT11</code> – Anger vilken typ av sensor du
+            använder (kan ändras till DHT22 om du använder den istället).
+          </li>
+          <li>
+            <code>DHT dht(DHTPIN, DHTTYPE);</code> – Skapar ett objekt som vi
+            kan använda för att prata med sensorn.
+          </li>
+        </ul>
+
+        <h3><code>setup()</code></h3>
+        <ul>
+          <li>
+            <code>Serial.begin(9600);</code> – Startar seriell kommunikation så
+            vi kan skriva ut värden i Serial Monitor.
+          </li>
+          <li>
+            <code>dht.begin();</code> – Initierar sensorn så att den är redo att
+            börja mäta.
+          </li>
+          <li>
+            <code>Serial.println("Reading DHT11 sensor...");</code> – Skriver
+            ett meddelande i Serial Monitor så vi vet att allt fungerar.
+          </li>
+        </ul>
+
+        <h3><code>loop()</code></h3>
+        <ul>
+          <li>
+            <code>float temp = dht.readTemperature();</code> – Läser av
+            temperaturen i grader Celsius från sensorn.
+          </li>
+          <li>
+            <code>float hum = dht.readHumidity();</code> – Läser av
+            luftfuktigheten i procent.
+          </li>
+          <li>
+            <code>if (isnan(...))</code> – Kontrollerar om värdena är ogiltiga
+            (t.ex. om något är fel med sensorn).
+          </li>
+          <li>
+            <code>Serial.print(...) / println(...)</code> – Skriver ut
+            temperatur och luftfuktighet i Serial Monitor på samma rad.
+          </li>
+          <li>
+            <code>delay(2000);</code> – Väntar 2 sekunder innan nästa mätning.
+          </li>
+        </ul>
+      </div>
+      <br />
+      <div class="gray-box">
+        <h2>Using the Serial Monitor</h2>
+        <ol>
+          <li>Connect your board to the computer</li>
+          <li>Upload the code</li>
+          <li>
+            Click <strong>Tools → Serial Monitor</strong> (or press
+            Ctrl+Shift+M)
+          </li>
+          <li>Make sure baud rate is <code>9600</code></li>
+        </ol>
+        <p>You should now see live readings like this:</p>
+        <pre><code>Temperature: 22.0 °C  |  Humidity: 45.0 %</code></pre>
+      </div>
 
       <div class="buttons" id="buttons">
         <br />

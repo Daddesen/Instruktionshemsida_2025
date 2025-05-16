@@ -51,66 +51,167 @@
     <main class="space" id="space">
       <h1>6. Ultrasonic Sensor</h1>
 
-      <div class="code-container">
-        <div class="code-header">
-          <span><i class="fa-solid fa-code"></i> C++ Arduino-sketch</span>
-          <button class="copy-button">Copy</button>
-        </div>
-        <pre><code class="language-cpp">
-void setup() {
-  // put your setup code here, to run once:
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-}
-        </code></pre>
-      </div>
       <div class="gray-box">
-        <h2>Explanation</h2>
+        <h2>Measure Distance with HC-SR04 and ESP8266</h2>
         <p>
-          This is a basic structure of an Arduino program, also called a
-          "sketch". It consists of two main functions:
-        </p>
-        <ul>
-          <li>
-            <code>setup()</code>: This function runs once when the
-            microcontroller starts. It is used to set up things like pin modes,
-            serial communication, or initializing libraries. In this example, it
-            is empty.
-          </li>
-          <li>
-            <code>loop()</code>: This function runs continuously in a loop after
-            <code>setup()</code> is done. It contains the main logic of your
-            program. This is where you would put the code that needs to run
-            repeatedly. In this example, it is also empty.
-          </li>
-        </ul>
-        <p>
-          This structure is required for all Arduino programs, even if they
-          don’t do anything yet.
+          The HC-SR04 uses sound to measure distance. It sends out a pulse and
+          listens for the echo. Great for obstacle detection, smart trash bins,
+          parking sensors, and more!
         </p>
       </div>
       <br />
 
-      <h2>Video Demonstration</h2>
-      <video controls>
-        <source src="pictures/testmp4.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <h2>Temperature Sensor Image</h2>
-      <img
-        src="pictures/temp.jpeg"
-        alt="Temperature Sensor"
-        class="responsive-image"
-      />
+      <div class="gray-box">
+        <h2>What You Need</h2>
+        <ul>
+          <li>1x ESP8266 D1 Mini</li>
+          <li>1x HC-SR04 ultrasonic sensor</li>
+          <li>Wires + breadboard</li>
+        </ul>
+      </div>
 
-      <p>
-        HEj hej Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id
-        asperiores saepe laudantium quas, odit, sequi hic, tenetur aperiam minus
-        optio suscipit in cum magnam unde quasi adipisci facere debitis
-        architecto?
-      </p>
+      <div class="image-row">
+        <img
+          src="pictures/hcsr04_sensor.png"
+          alt="HC-SR04 sensor"
+          class="responsive-image"
+        />
+        <img
+          src="pictures/hcsr04_wiring.png"
+          alt="Wiring HC-SR04 to ESP8266"
+          class="responsive-image"
+        />
+      </div>
+
+      <div class="gray-box">
+        <h2>Wiring the HC-SR04</h2>
+        <p>Connect like this:</p>
+        <ul>
+          <li><strong>VCC</strong> → <code>5V</code> on D1 Mini</li>
+          <li><strong>GND</strong> → <code>GND</code></li>
+          <li><strong>TRIG</strong> → <code>D5</code> (GPIO14)</li>
+          <li><strong>ECHO</strong> → <code>D6</code> (GPIO12)</li>
+        </ul>
+        <p>
+          <strong>Important:</strong> ECHO ger ut 5V signal – skydda din ESP8266
+          med en spänningsdelare (t.ex. 1kΩ + 2kΩ).
+        </p>
+      </div>
+      <br />
+      <div class="gray-box">
+        <h2>Example Code</h2>
+        <p>
+          This code sends a pulse, waits for the echo, and calculates distance
+          using the speed of sound.
+        </p>
+
+        <div class="code-container">
+          <div class="code-header">
+            <span><i class="fa-solid fa-code"></i> C++ HC-SR04 Example</span>
+            <button class="copy-button">Copy</button>
+          </div>
+          <pre><code class="language-cpp">#define TRIG_PIN D5
+#define ECHO_PIN D6
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  Serial.println("Ultrasonic sensor ready.");
+}
+
+void loop() {
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+
+  long duration = pulseIn(ECHO_PIN, HIGH);
+  float distanceCM = duration * 0.034 / 2;
+
+  Serial.print("Distance: ");
+  Serial.print(distanceCM);
+  Serial.println(" cm");
+
+  delay(1000);
+}</code></pre>
+        </div>
+        <!-- <div class="gray-box"> -->
+        <h2>What Does the Code Do?</h2>
+
+        <h3>Setup Section</h3>
+        <ul>
+          <li>
+            <code>#define TRIG_PIN D5</code>: Definierar vilket ben som används
+            för att skicka ut ljudsignalen.
+          </li>
+          <li>
+            <code>#define ECHO_PIN D6</code>: Definierar vilket ben som ska ta
+            emot ekot.
+          </li>
+          <li>
+            <code>Serial.begin(9600);</code>: Startar seriell kommunikation så
+            att vi kan se värden i Serial Monitor.
+          </li>
+          <li>
+            <code>pinMode(...)</code>: Sätter TRIG som utgång (output) och ECHO
+            som ingång (input).
+          </li>
+        </ul>
+
+        <h3>Loop Section</h3>
+        <ul>
+          <li>
+            <code>digitalWrite(TRIG_PIN, LOW);</code> – Startar med att
+            nollställa trig-signal
+          </li>
+          <li>
+            <code>delayMicroseconds(2);</code> – Väntar 2 mikrosekunder (krävs
+            enligt sensor-spec)
+          </li>
+          <li>
+            <code>digitalWrite(TRIG_PIN, HIGH);</code> – Skickar ut ett ljudpuls
+          </li>
+          <li>
+            <code>delayMicroseconds(10);</code> – Pulsens längd måste vara exakt
+            10 mikrosekunder
+          </li>
+          <li>
+            <code>pulseIn(ECHO_PIN, HIGH);</code> – Mäter hur länge det tar
+            innan ljudet studsar tillbaka (i mikrosekunder)
+          </li>
+          <li>
+            <code>float distanceCM = duration * 0.034 / 2;</code> – Omvandlar
+            tiden till avstånd i centimeter. <br />
+            0.034 cm/μs är ljudets hastighet. Dela på 2 eftersom det är tur och
+            retur.
+          </li>
+          <li>
+            <code>Serial.print(...)</code> – Skriver ut avståndet i Serial
+            Monitor
+          </li>
+        </ul>
+
+        <p>
+          Du kan nu hålla handen framför sensorn och se avståndet ändras i
+          realtid i Serial Monitor!
+        </p>
+      </div>
+      <br />
+
+      <div class="gray-box">
+        <h2>Using the Serial Monitor</h2>
+        <ol>
+          <li>Upload the code to your D1 Mini</li>
+          <li>Open <strong>Serial Monitor</strong> (Ctrl+Shift+M)</li>
+          <li>Set baud rate to <code>9600</code></li>
+        </ol>
+        <p>You will now see distance updates every second:</p>
+        <pre><code>Distance: 18.5 cm
+Distance: 19.2 cm
+Distance: 19.1 cm</code></pre>
+      </div>
 
       <div class="buttons" id="buttons">
         <br />
