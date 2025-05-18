@@ -32,6 +32,10 @@ h2 {
   margin: 0;
 }
 
+.buttons h2 {
+  margin-top: 5px;
+}
+
 i {
   color: #7bb6cd;
   margin-right: 0.5rem;
@@ -64,10 +68,10 @@ i {
 .nav-links a:hover {
   background-color: #184585;
   border-radius: 5px;
+}
 
-  i {
-    color: #ffffff;
-  }
+.nav-links a:hover i {
+  color: #ffffff;
 }
 
 main {
