@@ -95,7 +95,11 @@ section {
     align-items: flex-start;
     justify-content: space-between;
   }
-
+  .logo {
+    height: 80px;
+    object-fit: contain;
+    border-radius: 15px;
+  }
   .text {
     flex: 2;
     text-align: left;
@@ -110,6 +114,11 @@ section {
 
   body.index .buttons {
     width: 45%;
+  }
+  .logo {
+    height: 80px;
+    object-fit: contain;
+    border-radius: 15px;
   }
 
   main.space {
@@ -153,6 +162,9 @@ section {
     margin: 0 2rem;
     flex: 3;
   }
+  .logo {
+    height: 60px;
+  }
 
   .buttons button {
     font-size: 0.8rem;
@@ -192,6 +204,11 @@ section {
 @media screen and (orientation: portrait), screen and (max-width: 800px) {
   body {
     font-size: small;
+  }
+  .logo {
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
   }
   .nav-links {
     display: none;
@@ -484,6 +501,11 @@ button:hover {
 .gray-box li {
   color: #dcdcdc;
   line-height: 1.6;
+}
+#Quote {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto; /* centrerar boxen horisontellt */
 }
 
 a {
