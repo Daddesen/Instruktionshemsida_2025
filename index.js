@@ -71,3 +71,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 console.log("ESP8266 site loaded!");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const proxyUrl = "https://api.allorigins.win/raw?url=";
+  const targetUrl = "https://zenquotes.io/api/random";
+  const noCache = `?nocache=${new Date().getTime()}`;
+
+  fetch(proxyUrl + encodeURIComponent(targetUrl) + noCache)
+    .then((res) => res.json())
+    .then((data) => {
+      const quote = data[0];
+      document.getElementById(
+        "quote-box"
+      ).innerHTML = `"${quote.q}"<br>— ${quote.a}`;
+    })
+    .catch((err) => {
+      console.error("Fetch error:", err);
+      document.getElementById("quote-box").textContent =
+        "Could not load quote.";
+    });
+});
