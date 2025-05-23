@@ -550,6 +550,23 @@ a {
   display: inline;
   margin: 0 8px;
 }
+.footer .footer-content p img {
+  display: block;
+  margin: 10px auto;
+}
+.validator-badge .badge-flex {
+  display: inline-flex; /* inline-flex för att det ska passa i textflöde */
+  align-items: center; /* Vertikal centrering */
+  justify-content: center;
+  gap: 10px; /* Avstånd mellan bild och text */
+  margin-top: 10px; /* Lägger lite utrymme ovanför */
+}
+
+.validator-badge span {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1; /* Undvik extra vertikalt mellanrum */
+}
 
 main {
   flex: 1;
