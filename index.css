@@ -554,3 +554,10 @@ a {
 main {
   flex: 1;
 }
+
+#success-message {
+  display: none;
+  color: green;
+  font-weight: bold;
+  margin-top: 1em;
+}
